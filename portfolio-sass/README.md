@@ -1,6 +1,6 @@
 # Modern portfolio website using SASS
 
-- (Live here)[https://portfolio-sass-saipradeepti.netlify.app/]
+- [Live here](https://portfolio-sass-saipradeepti.netlify.app//)
 
 ## Desktop view
 
