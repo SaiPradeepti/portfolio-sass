@@ -1,0 +1,35 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #272727;
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(480px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  grid-gap: 20px;
+  padding: 2rem 3rem;
+}
+
+.container__img {
+  height: 500px;
+  width: 650px;
+}
+/*# sourceMappingURL=main.css.map */

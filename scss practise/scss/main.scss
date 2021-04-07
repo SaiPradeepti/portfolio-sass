@@ -1,0 +1,114 @@
+//partials
+@import "./resets";
+
+// Variables
+
+$primary-color: #272727;
+$secondary-color: #fff;
+$text-color: pink;
+$text-size: 1.6rem;
+$mobile: 800px;
+
+body {
+  background: $primary-color;
+  color: $secondary-color;
+}
+
+// Maps
+//variable for map
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "large": 700,
+);
+
+.main {
+  font-weight: map-get($font-weights, medium);
+}
+
+// Nesting
+
+body {
+  h1 {
+    text-align: center;
+  }
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+
+  #{&}__paragraph1 {
+    // interpolation
+    font-size: $text-size;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+
+  // Extends
+  #{&}__paragraph2 {
+    @extend .main__paragraph1;
+
+    &:hover {
+      background: blue;
+    }
+  }
+}
+
+// Functions
+
+$bg-color: (
+  bg-primary: #272727,
+  bg-secondary: rgb(37, 1, 37),
+);
+
+@function bgColor($color) {
+  @return map-get($bg-color, $color);
+}
+
+body {
+  background: bgColor(bg-secondary);
+}
+
+// mixins
+
+// example 1
+@mixin flexCenter($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+.main {
+  @include flexCenter(row);
+}
+
+// example 2
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($primary-color, 100%);
+    color: darken($secondary-color, 100%);
+  }
+}
+
+body {
+  @include theme($light-theme: false);
+}
+
+// example 3
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+.main {
+  @include mobile {
+    flex-direction: column;
+  }
+}

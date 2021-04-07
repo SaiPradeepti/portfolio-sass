@@ -1,0 +1,32 @@
+@import "./resets";
+
+$primary-color: #272727;
+$secondary-color: #fff;
+
+body {
+  background: $primary-color;
+  color: $secondary-color;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+@mixin gridDsipaly {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  grid-gap: 20px;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  @include gridDsipaly;
+  padding: 2rem 3rem;
+
+  &__img {
+    height: 500px;
+    width: 650px;
+  }
+}
